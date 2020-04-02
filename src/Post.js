@@ -6,7 +6,7 @@ const Post = ({ id: postId }) => {
 
   useEffect(() => {
     Adapter.getPost(postId, setPost);
-  }, []);
+  }, [postId]);
 
   return (
     <>
