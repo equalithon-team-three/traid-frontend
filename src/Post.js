@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Adapter from './Adapter';
 
 const Post = ({ id: postId }) => {
-
-  const [ post, setPost ] = useState([])
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
-    Adapter.getPost(postId, setPost)
-  }, [])
+    Adapter.getPost(postId, setPost);
+  }, [postId]);
 
-  return <>
-    <h1>{ post.title }</h1>
-  </>
-}
+  return (
+    <>
+      <h1>{post.title}</h1>
+    </>
+  );
+};
 
 export default Post;
