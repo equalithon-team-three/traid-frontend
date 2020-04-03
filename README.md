@@ -1,3 +1,8 @@
+## How to deploy me
+* Use firebase CLI
+* When you load the site in your browser, tack a random query string ?39478234897kjdshfsh on the end to bust the cache
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
