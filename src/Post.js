@@ -9,9 +9,11 @@ const Post = ({ id: postId }) => {
     Adapter.getPost(postId, setPost)
   }, [ postId, setPost ]); // no array runs on every render, empty array is essentially componentDidMount
 
-  return <>
-    <h1>{ post.title }</h1>
-  </>
-}
+  return (
+    <>
+      <h1>{post.title}</h1>
+    </>
+  );
+};
 
 export default Post;
