@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 
 const FormModal = ({ showModal, closeModal, formOpen }) => {
 
-  // const [ showForm, setShowForm ] = useState(false);
+  const [formInfo, setFormInfo] = useState(
+    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
+  )
 
-
+  
 
   const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
 
