@@ -26,6 +26,8 @@ const renderItem = post => (
 const renderListItems = items => items.map(renderItem);
 
 const Dashboard = () => {
+
+
   const [posts, setPosts] = useState([]);
 
   const [requestFormOpen, setRequestFormOpen] = useState(false)
@@ -45,14 +47,7 @@ const Dashboard = () => {
   }
 
 
-  // # t.string :title
-  // # t.boolean :request_offer
-  // # t.string :details
-  // # t.datetime :date_posted
-  // # t.string :location
-  // # t.string :quantity
-  // # t.datetime :deadline
-  // # t.boolean :completed
+
 
   return (
     <div>
