@@ -12,6 +12,7 @@ const Post = ({ id: postId }) => {
   return (
     <>
       <h1>{post.title}</h1>
+      {console.log(post)}
     </>
   );
 };
