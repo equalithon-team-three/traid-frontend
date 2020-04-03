@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
+      <NavLink to="/" className="navbar-brand">
         <span className="logo text-style-bold">Traid</span>
-      </a>
+      </NavLink>
 
       <button
         className="navbar-toggler remove-outline"
@@ -22,38 +23,38 @@ const Navbar = () => {
       <div className="navbar-collapse collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="/">
+            <NavLink to="/" className="nav-link">
               Home <span className="sr-only">(current)</span>
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/items">
+            <NavLink to="/items" className="nav-link">
               Items
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/tasks">
+            <NavLink to="/tasks" className="nav-link">
               Tasks
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/about">
+            <NavLink to="/about" className="nav-link">
               About
-            </a>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a
+            <NavLink
+              to="https://github.com/equalithon-team-three"
               className="nav-link"
-              href="https://github.com/equalithon-team-three"
               target="_blank"
               rel="noopener noreferrer"
             >
               Source
-            </a>
+            </NavLink>
           </li>
         </ul>
 
