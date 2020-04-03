@@ -12,16 +12,16 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
   return (
 
     <div className={showHideClassName}>
-      <div className='class="modal-dialog" role="document"'>
+      <div className="modal-dialog" role="document">
         <div className='modal-main'>
           <div className='modal-content'>
             <div className='modal-header'>
-              <h5 class="modal-title">Make a Request</h5>
+              <h5 className="modal-title">Make a Request</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}><span aria-hidden="true">&times;</span></button>
               
             </div>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
               <p>Modal body text goes here.</p>
             </div>
         </div>
