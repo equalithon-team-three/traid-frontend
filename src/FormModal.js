@@ -21,7 +21,7 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
               
             </div>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
               <p>Modal body text goes here.</p>
             </div>
         </div>
