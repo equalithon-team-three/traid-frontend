@@ -21,8 +21,16 @@ li {
   padding-bottom: 0.5em;
 }
 
+button.navbar-toggler {
+  outline: none;
+}
+
 .text-style-bold {
   font-weight: bold;
+}
+
+.logo {
+  font-size: xx-large;
 }
 
 .board {
@@ -39,4 +47,12 @@ li {
 
 .card-link {
   text-decoration: none;
+}
+
+.nav-item {
+  padding: 0em;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }

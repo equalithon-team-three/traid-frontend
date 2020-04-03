@@ -4,11 +4,11 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/">
-        <span className="text-style-bold">Traid</span>
+        <span className="logo text-style-bold">Traid</span>
       </a>
 
       <button
-        className="navbar-toggler"
+        className="navbar-toggler remove-outline"
         type="button"
         data-toggle="collapse"
         data-target="#navbarColor01"
