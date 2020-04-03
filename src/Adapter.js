@@ -16,6 +16,28 @@ class Adapter {
       .then(callback)
   }
 
+  static logIn(credentials, callback) {
+    fetch(apiUrlBase + "auth/login", {
+      headers: {
+        method: "POST",
+        "Content-Type": "application/json",
+        body: JSON.stringify(credentials)
+      }
+    }).then(res => res.json())
+      .then(callback)
+  }
+
+  static signUp(credentials, callback) {
+    fetch(apiUrlBase + "auth/register", {
+      headers: {
+        method: "POST",
+        "Content-Type": "application/json",
+        body: JSON.stringify(credentials)
+      }
+    }).then(res => res.json())
+      .then(callback)
+  }
+
 }
 
 export default Adapter;
