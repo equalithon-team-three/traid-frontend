@@ -47,14 +47,14 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item">
-            <NavLink
-              to="https://github.com/equalithon-team-three"
+            <a
               className="nav-link"
+              href="https://github.com/equalithon-team-three"
               target="_blank"
               rel="noopener noreferrer"
             >
               Source
-            </NavLink>
+            </a>
           </li>
         </ul>
 
