@@ -12,10 +12,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "REACT_APP_API_URL_BASE=http://localhost:3000/api/ PORT=3001 react-scripts start",
-    "build": "REACT_APP_API_URL_BASE=https://traid-backend.herokuapp.com/api/ react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    "deploy": "npm run build && firebase deploy"
   },
   "browserslist": {
     "production": [
