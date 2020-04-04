@@ -1,7 +1,34 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
+const renderLoggedIn = ({ email }) =>  <>
+                        <li className="nav-item">
+                            <span className="text-style-bold">Logged in as { email }</span>
+                        </li>
+
+                        <li className="nav-item">
+                          <NavLink to="/logout" className="nav-link">
+                            <span className="text-style-bold">Log out</span>
+                          </NavLink>
+                        </li>
+                      </>
+
+
+const renderLoggedOut = () => <>
+                        <li className="nav-item">
+                          <NavLink to="/login" className="nav-link">
+                            <span className="text-style-bold">Log In</span>
+                          </NavLink>
+                        </li>
+
+                        <li className="nav-item">
+                          <NavLink to="/register" className="nav-link">
+                            <span className="text-style-bold">Sign Up</span>
+                          </NavLink>
+                        </li>
+                      </>
+
+const Navbar = ({ authData }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink to="/" className="navbar-brand">
@@ -46,6 +73,8 @@ const Navbar = () => {
               <span className="text-style-bold">About</span>
             </NavLink>
           </li>
+
+          { authData.authenticated ? renderLoggedIn(authData) : renderLoggedOut(authData) } 
 
           <li className="nav-item">
             <a

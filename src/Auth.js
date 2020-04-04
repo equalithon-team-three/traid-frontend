@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import Adapter from './Adapter';
 
-const onSubmit = (loggingIn, formData) => {
-  if (loggingIn)
-    Adapter.logIn(formData, console.log)
-  else
-    Adapter.signUp(formData, console.log)
+const onSubmit = (loggingIn, formData, setErrors, setAuthenticated) => {
+  const methodName = loggingIn ? "logIn" : "signUp";
+  Adapter[methodName](formData, (data) => {
+    setErrors(data.errors || [])
+    if (data.authenticated) {
+      setAuthenticated(data)
+    }
+  })
 }
 
-const Auth = ({ loggingIn }) => {
+const renderErrors = errors => <ul>
+  { errors.map(error => <li key={ error }>{ error }</li>) }
+</ul>
+
+const Auth = ({ loggingIn, setAuthenticated }) => {
 
   // controlled inputs
   const [ formData, setFormData ] = useState({
@@ -16,11 +23,14 @@ const Auth = ({ loggingIn }) => {
     password: ""
   });
 
+  const [ errors, setErrors ] = useState([])
+
   const inputChanged = ({ target }) => setFormData({ ...formData, [target.name]: target.value }) 
 
   return <>
     <h2>{ loggingIn ? "Log In" : "Sign up" }</h2>
-    <form onSubmit={ e => { e.preventDefault(); onSubmit(loggingIn, formData) } }>
+    { errors.length ? renderErrors(errors) : null }
+    <form onSubmit={ e => { e.preventDefault(); onSubmit(loggingIn, formData, setErrors, setAuthenticated) } }>
       <ul>
         <li>
           <label htmlFor="email">Email</label>
