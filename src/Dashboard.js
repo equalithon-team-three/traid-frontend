@@ -4,21 +4,27 @@ import { NavLink } from 'react-router-dom';
 import Adapter from './Adapter';
 import FormModal from './FormModal';
 
-const renderItem = post => (
+
+const renderItem = (post) => (
+  
+  
   <li key={post.id}>
     <div className="card post-preview">
       <NavLink to={'/posts/' + post.id} className="card-link">
-        <div className="card text-white bg-primary mb-3 card-margin">
-          <div className="card-header text-style-bold">{post.title}</div>
+        <div className={post.request_offer ? "card text-white bg-danger mb-3 card-margin" : "card text-white bg-success mb-3 card-margin"}>
+          <div className="card-header text-style-bold">{post.title}
+          {console.log(post)}
+          </div>
 
           <div className="card-body">
-            <p className="card-text">CONTENT PLACEHOLDER</p>
+            <p className="card-text">{post.details}</p>
           </div>
         </div>
       </NavLink>
     </div>
   </li>
 );
+
 
 const renderListItems = items => items.map(renderItem);
 
@@ -38,7 +44,7 @@ const Dashboard = () => {
     <div>
       <div className="text-center board">
         <button
-          className="btn btn-success btn-lg btn request-aid"
+          className="btn btn-primary btn-lg btn request-aid"
           type="button"
           onClick={showModal}
         >
