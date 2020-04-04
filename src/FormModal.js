@@ -25,6 +25,7 @@ const FormModal = ({ closeModal, formOpen }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
+    console.log({ state });
     closeModal();
     clearForm();
   };
@@ -71,7 +72,7 @@ const FormModal = ({ closeModal, formOpen }) => {
               <div className="input-container">
                 <label className="input-containee">Content</label>
 
-                <input
+                <textarea
                   className="input-containee"
                   type="text"
                   name="details"
