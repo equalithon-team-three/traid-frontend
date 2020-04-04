@@ -8,11 +8,9 @@ const renderItem = post => (
   <li key={post.id}>
     <div className="card post-preview">
       <NavLink to={'/posts/' + post.id} className="card-link">
-        <div
-          className="card text-white bg-primary mb-3 card-margin"
-          styles={{ maxWidth: '20rem' }}
-        >
+        <div className="card text-white bg-primary mb-3 card-margin">
           <div className="card-header text-style-bold">{post.title}</div>
+
           <div className="card-body">
             <p className="card-text">CONTENT PLACEHOLDER</p>
           </div>
@@ -25,48 +23,35 @@ const renderItem = post => (
 const renderListItems = items => items.map(renderItem);
 
 const Dashboard = () => {
-
-
   const [posts, setPosts] = useState([]);
-
   const [requestFormOpen, setRequestFormOpen] = useState(false);
 
   useEffect(() => {
     Adapter.getPosts(setPosts);
   }, []);
 
-  const showModal = () => {
-    console.log('handled click');
-    setRequestFormOpen(true);
-  };
+  const showModal = () => setRequestFormOpen(true);
 
-  const closeModal = () => {
-    console.log('closed form');
-    setRequestFormOpen(false);
-  };
-
-
+  const closeModal = () => setRequestFormOpen(false);
 
   return (
     <div>
-      <div className="board">
+      <div className="text-center board">
         <button
+          className="btn btn-success btn-lg btn request-aid"
           type="button"
-          className="btn btn-success btn-lg btn-block"
           onClick={showModal}
         >
-          Request Aid
+          Request/Offer Aid
         </button>
+
         <ul>{renderListItems(posts)}</ul>
 
         <FormModal
           showModal={showModal}
           closeModal={closeModal}
           formOpen={requestFormOpen}
-        >
-          <p>Modal</p>
-          <p>Data</p>
-        </FormModal>
+        />
       </div>
     </div>
   );
