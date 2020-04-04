@@ -16,7 +16,7 @@ const renderItem = (post) => (
           {console.log(post)}
           </div>
 
-          <div className="card-body">
+          <div className={post.request_offer ? "card-body text-danger bg-white" : "card-body text-success bg-white"}>
             <p className="card-text">{post.details}</p>
           </div>
         </div>
