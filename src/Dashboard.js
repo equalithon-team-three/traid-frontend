@@ -24,10 +24,12 @@ const renderListItems = items => items.map(renderItem);
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
+  const [postCategories, setPostCategories] = useState([]);
   const [requestFormOpen, setRequestFormOpen] = useState(false);
 
   useEffect(() => {
     Adapter.getPosts(setPosts);
+    Adapter.getPostCategories(setPostCategories)
   }, []);
 
   const showModal = () => setRequestFormOpen(true);
@@ -45,13 +47,15 @@ const Dashboard = () => {
           Request/Offer Aid
         </button>
 
-        <ul>{renderListItems(posts)}</ul>
+        <ul>{ renderListItems(posts) }</ul>
 
-        <FormModal
-          showModal={showModal}
-          closeModal={closeModal}
-          formOpen={requestFormOpen}
-        />
+        { 
+          requestFormOpen && postCategories.length ? <FormModal
+            showModal={showModal}
+            closeModal={closeModal}
+            formOpen={requestFormOpen}
+            postCategories={postCategories}
+          /> : null }
       </div>
     </div>
   );

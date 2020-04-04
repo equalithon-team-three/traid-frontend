@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Adapter from './Adapter';
 
-const FormModal = ({ closeModal, formOpen }) => {
+const FormModal = ({ closeModal, formOpen, postCategories }) => {
+
   const initialState = {
     title: '',
     request_offer: null,
@@ -11,9 +13,11 @@ const FormModal = ({ closeModal, formOpen }) => {
     // between items and services
     deadline: '',
     completed: false,
+    post_category_id: postCategories[0].id // this might be bad
   };
 
   const [state, setState] = useState(initialState);
+  const [errors, setErrors] = useState([]);
 
   const clearForm = () => {
     setState(initialState);
@@ -25,9 +29,16 @@ const FormModal = ({ closeModal, formOpen }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    console.log({ state });
-    closeModal();
-    clearForm();
+    Adapter.createPost(state, data => {
+      if (data.errors) {
+        setErrors(data.errors)
+      }
+      else {
+        clearForm();
+        closeModal();
+      }
+    })
+    
   };
 
   const showHideClassName = formOpen
@@ -55,7 +66,22 @@ const FormModal = ({ closeModal, formOpen }) => {
           </div>
 
           <div className="modal-body">
+              { errors ? <ul>{ errors.map(error => <li key={ error }>{ error }</li>) }</ul> : null }
             <form onSubmit={handleSubmit}>
+
+              <div className="input-container">
+                <label className="input-containee">Post Category</label>
+
+                <select 
+                  value={ state.post_category_id }
+                  name="post_category_id"
+                  onChange={handleChange}
+                >
+                  { postCategories.map(({ name, id }) => <option value={ id } key={ id } >{ name }</option>) }
+                </select>
+              </div>
+
+
               <div className="input-container">
                 <label className="input-containee">Title</label>
 
