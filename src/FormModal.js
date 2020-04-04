@@ -7,6 +7,11 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
     { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
   )
 
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    setFormInfo({...formInfo, [e.target.name]: e.target.value})
+  }
+
   
 
   const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
@@ -25,6 +30,14 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
           </div>
           <div className="modal-body">
               <p>Modal body text goes here.</p>
+              <form>
+                <input 
+                  type='text'
+                  name='name'
+                  value={formInfo.name}
+                  onChange={handleChange}>
+                </input>
+              </form>
             </div>
         </div>
       </div>
