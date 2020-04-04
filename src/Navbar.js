@@ -24,25 +24,26 @@ const Navbar = () => {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <NavLink to="/" className="nav-link">
-              Home <span className="sr-only">(current)</span>
+              <span className="text-style-bold">Home</span>{' '}
+              <span className="sr-only">(current)</span>
             </NavLink>
           </li>
 
           <li className="nav-item">
             <NavLink to="/items" className="nav-link">
-              Items
+              <span className="text-style-bold">Items</span>
             </NavLink>
           </li>
 
           <li className="nav-item">
             <NavLink to="/tasks" className="nav-link">
-              Tasks
+              <span className="text-style-bold">Tasks</span>
             </NavLink>
           </li>
 
           <li className="nav-item">
             <NavLink to="/about" className="nav-link">
-              About
+              <span className="text-style-bold">About</span>
             </NavLink>
           </li>
 
@@ -53,7 +54,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Source
+              <span className="text-style-bold">Source</span>
             </a>
           </li>
         </ul>

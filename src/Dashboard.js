@@ -12,7 +12,7 @@ const renderItem = post => (
           className="card text-white bg-primary mb-3 card-margin"
           styles={{ maxWidth: '20rem' }}
         >
-          <div className="card-header">{post.title}</div>
+          <div className="card-header text-style-bold">{post.title}</div>
           <div className="card-body">
             <p className="card-text">CONTENT PLACEHOLDER</p>
           </div>
