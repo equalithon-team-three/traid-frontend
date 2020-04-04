@@ -30,9 +30,12 @@ const FormModal = ({ closeModal, formOpen }) => {
     clearForm();
   };
 
-  const showHideClassName = formOpen
-    ? 'modal display-block'
-    : 'modal display-none';
+  const [formInfo, setFormInfo] = useState(
+    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
+  )
+
+
+  const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
 
   return (
     <div className={showHideClassName} onClick={closeModal}>
@@ -70,6 +73,18 @@ const FormModal = ({ closeModal, formOpen }) => {
               </div>
 
               <div className="input-container">
+                <label className="input-containee">Is this a request or an offer?</label>
+
+                <select 
+                className="input-containee"
+                onChange={handleChange}
+                >
+                  <option>Request</option>
+                  <option>Offer</option>
+                </select>
+              </div>
+
+              <div className="input-container">
                 <label className="input-containee">Content</label>
 
                 <textarea
@@ -93,7 +108,9 @@ const FormModal = ({ closeModal, formOpen }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+
+}
 
 export default FormModal;
+
