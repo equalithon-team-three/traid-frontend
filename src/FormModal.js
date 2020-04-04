@@ -1,19 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
-const FormModal = ({ showModal, closeModal, formOpen }) => {
+const FormModal = ({ closeModal, formOpen }) => {
 
-  const [formInfo, setFormInfo] = useState(
-    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
-    //hello
-  )
+  const initialState = {
+    title: '',
+    request_offer: null,
+    details: '',
+    // date_posted: '', 
+    location: '',
+    quantity: 0,
+    // between items and services
+    deadline: '',
+    completed: false
+  }
+
+  const [state, setState] = useState(initialState)
+
+  const clearForm = () => {
+    setState(initialState);
+  }
 
   const handleChange = (e) => {
     console.log(e.target.value)
-    setFormInfo({...formInfo, [e.target.name]: e.target.value})
+    setState({...state, [e.target.name]: e.target.value})
   }
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({state});
+    console.log('Posted successfully');
+    closeModal();
+    clearForm();
+  }
 
   const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
 
@@ -31,13 +50,33 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
           </div>
           <div className="modal-body">
               <p>Modal body text goes here.</p>
-              <form>
-                <input 
+              <form
+                onSubmit={handleSubmit}
+              >
+                <label
+                >
+                  Title
+                  </label>
+                <input
                   type='text'
-                  name='name'
-                  value={formInfo.name}
+                  name='title'
+                  value={state.title}
                   onChange={handleChange}>
                 </input>
+                <label 
+                >
+                  Content
+                </label>
+                <input 
+                  type='text'
+                  name='details'
+                  value={state.details}
+                  onChange={handleChange}>
+                </input>
+                <button
+                >
+                  Submit
+                </button>
               </form>
             </div>
         </div>
