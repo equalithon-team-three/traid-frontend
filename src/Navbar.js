@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
+      <NavLink to="/" className="navbar-brand">
         <span className="logo text-style-bold">Traid</span>
-      </a>
+      </NavLink>
 
       <button
         className="navbar-toggler remove-outline"
@@ -22,27 +23,28 @@ const Navbar = () => {
       <div className="navbar-collapse collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home <span className="sr-only">(current)</span>
-            </a>
+            <NavLink to="/" className="nav-link">
+              <span className="text-style-bold">Home</span>{' '}
+              <span className="sr-only">(current)</span>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/items">
-              Items
-            </a>
+            <NavLink to="/items" className="nav-link">
+              <span className="text-style-bold">Items</span>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/tasks">
-              Tasks
-            </a>
+            <NavLink to="/tasks" className="nav-link">
+              <span className="text-style-bold">Tasks</span>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="/about">
-              About
-            </a>
+            <NavLink to="/about" className="nav-link">
+              <span className="text-style-bold">About</span>
+            </NavLink>
           </li>
 
           <li className="nav-item">
@@ -52,7 +54,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Source
+              <span className="text-style-bold">Source</span>
             </a>
           </li>
         </ul>
