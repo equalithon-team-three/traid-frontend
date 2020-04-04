@@ -12,6 +12,13 @@ class Adapter {
       .then(callback)
   }
 
+  static getPostCategories(callback){
+    fetch(apiUrlBase + "post_categories", {
+      credentials: "include"
+    }).then(res => res.json())
+      .then(callback)
+  }
+
   static getPost(postId, callback) {
     fetch(apiUrlBase + "posts/" + postId, {
       credentials: "include"
@@ -39,6 +46,18 @@ class Adapter {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(credentials)
+    }).then(res => res.json())
+      .then(callback)
+  }
+
+  static createPost(post, callback) {
+    fetch(apiUrlBase + "posts", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
     }).then(res => res.json())
       .then(callback)
   }
