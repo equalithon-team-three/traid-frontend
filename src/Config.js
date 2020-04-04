@@ -1,6 +1,6 @@
 
 class Config {
-  static read = key => console.log(process.env) || process.env[key]
+  static read = key => process.env[key]
 }
 
 
