@@ -18,11 +18,19 @@ ul {
 }
 
 li {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.25em;
 }
 
 button.navbar-toggler {
   outline: none;
+}
+
+button.request-aid {
+  margin-bottom: 1.25em;
+}
+
+button.modal-button {
+  margin: 1.25em;
 }
 
 .text-style-bold {
@@ -38,7 +46,7 @@ button.navbar-toggler {
 }
 
 .post-preview {
-  padding: 0.5em;
+  padding: 0.5em 10em;
 }
 
 .card-margin {
@@ -53,19 +61,19 @@ button.navbar-toggler {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
 
 .modal-main {
-  position:fixed;
+  position: fixed;
   background: white;
   width: 80%;
   height: auto;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .display-block {
@@ -84,3 +92,27 @@ button.navbar-toggler {
   text-decoration: underline;
 }
 
+.page-not-found-container {
+  padding: 2.5em;
+  margin: 2.5em 10em;
+}
+
+.post-preview {
+  background: transparent;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.input-container {
+  flex: 1;
+}
+
+.page-not-found-message {
+  margin: 2em;
+}
