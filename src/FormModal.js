@@ -5,6 +5,7 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
 
   const [formInfo, setFormInfo] = useState(
     { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
+    //hello
   )
 
   const handleChange = (e) => {
