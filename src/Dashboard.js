@@ -7,7 +7,7 @@ import FormModal from './FormModal';
 
 const renderItem = (post) => (
   
-  
+  //hello
   <li key={post.id}>
     <div className="card post-preview">
       <NavLink to={'/posts/' + post.id} className="card-link">
