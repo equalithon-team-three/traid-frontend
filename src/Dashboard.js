@@ -47,8 +47,6 @@ const Dashboard = () => {
   }
 
 
-
-
   return (
     <div>
       <Navbar />
@@ -64,6 +62,7 @@ const Dashboard = () => {
         <FormModal showModal={showModal} closeModal={closeModal} formOpen={requestFormOpen}>
           <p>Modal</p>
           <p>Data</p>
+          
         </FormModal>
         
 

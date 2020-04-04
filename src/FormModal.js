@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
+import Form from './Form'
+
 
 const FormModal = ({ showModal, closeModal, formOpen }) => {
 
-  const [formInfo, setFormInfo] = useState(
-    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
-  )
-
-  
 
   const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
 
   return (
 
     <div className={showHideClassName}>
-      <div className='class="modal-dialog" role="document"'>
+      <div className="modal-dialog" role="document">
         <div className='modal-main'>
           <div className='modal-content'>
             <div className='modal-header'>
@@ -25,6 +22,9 @@ const FormModal = ({ showModal, closeModal, formOpen }) => {
           </div>
           <div className="modal-body">
               <p>Modal body text goes here.</p>
+              
+              <Form />
+
             </div>
         </div>
       </div>
