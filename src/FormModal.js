@@ -1,90 +1,98 @@
 import React, { useState } from 'react';
 
-
 const FormModal = ({ closeModal, formOpen }) => {
-
   const initialState = {
     title: '',
     request_offer: null,
     details: '',
-    // date_posted: '', 
+    // date_posted: '',
     location: '',
     quantity: 0,
     // between items and services
     deadline: '',
-    completed: false
-  }
+    completed: false,
+  };
 
-  const [state, setState] = useState(initialState)
+  const [state, setState] = useState(initialState);
 
   const clearForm = () => {
     setState(initialState);
-  }
+  };
 
-  const handleChange = (e) => {
-    console.log(e.target.value)
-    setState({...state, [e.target.name]: e.target.value})
-  }
+  const handleChange = event =>
+    setState({ ...state, [event.target.name]: event.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({state});
-    console.log('Posted successfully');
+  const handleSubmit = event => {
+    event.preventDefault();
+
     closeModal();
     clearForm();
-  }
+  };
 
-  const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
+  const showHideClassName = formOpen
+    ? 'modal display-block'
+    : 'modal display-none';
 
   return (
-
-    <div className={showHideClassName}>
+    <div className={showHideClassName} onClick={closeModal}>
       <div className='class="modal-dialog" role="document"'>
-        <div className='modal-main'>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <h5 className="modal-title">Make a Request</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}><span aria-hidden="true">&times;</span></button>
-              
+        <div className="modal-main" onClick={event => event.stopPropagation()}>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Create Aid Request/Offer</h5>
+
+              <button
+                className="close"
+                type="button"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick={closeModal}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           </div>
+
           <div className="modal-body">
-              <p>Modal body text goes here.</p>
-              <form
-                onSubmit={handleSubmit}
-              >
-                <label
-                >
-                  Title
-                  </label>
+            <form onSubmit={handleSubmit}>
+              <div className="input-container">
+                <label className="input-containee">Title</label>
+
                 <input
-                  type='text'
-                  name='title'
+                  className="input-containee"
+                  type="text"
+                  name="title"
                   value={state.title}
-                  onChange={handleChange}>
-                </input>
-                <label 
-                >
-                  Content
-                </label>
-                <input 
-                  type='text'
-                  name='details'
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="input-container">
+                <label className="input-containee">Content</label>
+
+                <input
+                  className="input-containee"
+                  type="text"
+                  name="details"
                   value={state.details}
-                  onChange={handleChange}>
-                </input>
-                <button
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <button
+                className="btn btn-success btn-lg btn modal-button"
+                type="submit"
+              >
+                Create
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  )
-
-}
+  );
+};
 
 export default FormModal;
-
