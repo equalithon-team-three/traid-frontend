@@ -30,11 +30,6 @@ const FormModal = ({ closeModal, formOpen }) => {
     clearForm();
   };
 
-  const [formInfo, setFormInfo] = useState(
-    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
-  )
-
-
   const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
 
   return (
