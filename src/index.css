@@ -33,6 +33,11 @@ button.modal-button {
   margin: 1.25em;
 }
 
+label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.1rem;
+}
+
 .text-style-bold {
   font-weight: bold;
 }
