@@ -1,36 +1,42 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const renderLoggedIn = ({ email }) =>  <>
-                        <li className="nav-item">
-                          <NavLink to="/myposts" className="nav-link">
-                            <span className="text-style-bold">Logged in as { email }</span>
-                          </NavLink>
-                        </li>
+const renderLoggedIn = ({ email }) => {
+  return (
+    <>
+      <li className="nav-item">
+        <NavLink to="/myposts" className="nav-link">
+          <span className="text-style-bold">Logged in as {email}</span>
+        </NavLink>
+      </li>
 
-                        <li className="nav-item">
-                          <NavLink to="/logout" className="nav-link">
-                            <span className="text-style-bold">Log out</span>
-                          </NavLink>
-                        </li>
-                      </>
+      <li className="nav-item">
+        <NavLink to="/logout" className="nav-link">
+          <span className="text-style-bold">Log out</span>
+        </NavLink>
+      </li>
+    </>
+  );
+};
 
+const renderLoggedOut = () => (
+  <>
+    <li className="nav-item">
+      <NavLink to="/login" className="nav-link">
+        <span className="text-style-bold">Log In</span>
+      </NavLink>
+    </li>
 
-const renderLoggedOut = () => <>
-                        <li className="nav-item">
-                          <NavLink to="/login" className="nav-link">
-                            <span className="text-style-bold">Log In</span>
-                          </NavLink>
-                        </li>
-
-                        <li className="nav-item">
-                          <NavLink to="/register" className="nav-link">
-                            <span className="text-style-bold">Sign Up</span>
-                          </NavLink>
-                        </li>
-                      </>
+    <li className="nav-item">
+      <NavLink to="/register" className="nav-link">
+        <span className="text-style-bold">Sign Up</span>
+      </NavLink>
+    </li>
+  </>
+);
 
 const Navbar = ({ authData }) => {
+  // console.log(authData)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink to="/" className="navbar-brand">
@@ -51,6 +57,18 @@ const Navbar = ({ authData }) => {
 
       <div className="navbar-collapse collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <NavLink to="/" className="nav-link">
+              <span className="text-style-bold">Home</span>{' '}
+              <span className="sr-only">(current)</span>
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink to="/myposts" className="nav-link">
+              <span className="text-style-bold">My Posts</span>
+            </NavLink>
+          </li>
 
           <li className="nav-item">
             <NavLink to="/about" className="nav-link">
@@ -58,7 +76,9 @@ const Navbar = ({ authData }) => {
             </NavLink>
           </li>
 
-          { authData.authenticated ? renderLoggedIn(authData) : renderLoggedOut(authData) } 
+          {authData.authenticated
+            ? renderLoggedIn(authData)
+            : renderLoggedOut(authData)}
 
           <li className="nav-item">
             <a
@@ -71,18 +91,6 @@ const Navbar = ({ authData }) => {
             </a>
           </li>
         </ul>
-
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-
-          <button className="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </nav>
   );
