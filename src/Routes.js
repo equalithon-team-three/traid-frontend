@@ -15,7 +15,7 @@ const renderAuth = (setAuthenticated, loggingIn) => renderProps => <Auth { ...re
   setAuthenticated= { setAuthenticated } />
 
 // Component
-const Routes = ({ setAuthenticated: setAuthenticatedProp, history }) => {
+const Routes = ({ setAuthenticated: setAuthenticatedProp, history, authData }) => {
 
   const setAuthenticated = data => {
     history.push("/")
@@ -24,7 +24,8 @@ const Routes = ({ setAuthenticated: setAuthenticatedProp, history }) => {
 
   return (
     <Switch>
-      <Route path="/" exact component={Dashboard} />
+      {/* <Route path="/" exact component={Dashboard} /> */}
+      <Route path="/" exact render={() => <Dashboard authData={authData} />} />
       <Route path="/posts/:id" render={renderPost} />
       <Route path="/login" render={ renderAuth(setAuthenticated, true) } />
       <Route path="/register" render={ renderAuth(setAuthenticated) } />
