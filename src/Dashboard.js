@@ -13,7 +13,7 @@ const renderItem = (post) => (
 
 const renderListItems = items => items.map(renderItem);
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
   const [posts, setPosts] = useState([]);
   const [postCategories, setPostCategories] = useState([]);
   const [requestFormOpen, setRequestFormOpen] = useState(false);
@@ -26,6 +26,8 @@ const Dashboard = () => {
   const showModal = () => setRequestFormOpen(true);
 
   const closeModal = () => setRequestFormOpen(false);
+
+  const visitPost = (postId) => history.push(`/posts/${ postId }`) 
 
   return (
     <div>
@@ -42,10 +44,11 @@ const Dashboard = () => {
 
         { 
           requestFormOpen && postCategories.length ? <FormModal
-            showModal={showModal}
+            visitPost={visitPost}
             closeModal={closeModal}
             formOpen={requestFormOpen}
             postCategories={postCategories}
+
           /> : null }
       </div>
     </div>
