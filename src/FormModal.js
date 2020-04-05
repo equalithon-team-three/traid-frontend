@@ -112,17 +112,49 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Content</label>
+                <label className="input-containee">Location</label>
+                <input
+                  className="input-containee"
+                  type="text"
+                  name="location"
+                  value={state.location}
+                  onChange={handleChange}
+                />
+              </div>
 
+              <div className="input-container">
+                <label className="input-containee">Details</label>
                 <textarea
                   className="input-containee"
                   type="text"
                   name="details"
                   value={state.details}
-                  required
                   onChange={handleChange}
                 />
               </div>
+
+              <div className="input-container">
+                <label className="input-containee">Need by or Pledge By</label>
+                <input
+                  className="input-containee"
+                  type="date"
+                  name="deadline"
+                  value={state.deadline}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="input-container">
+                <label className="input-containee">Quantity?</label>
+                <input
+                  className="input-containee"
+                  type="number"
+                  name="quantity"
+                  value={state.quantity}
+                  onChange={handleChange}
+                />
+              </div>
+
 
               <button
                 className="btn btn-success btn-lg btn modal-button"
