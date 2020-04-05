@@ -34,6 +34,7 @@ const renderLoggedOut = () => (
 );
 
 const Navbar = ({ authData }) => {
+  // console.log(authData)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink to="/" className="navbar-brand">

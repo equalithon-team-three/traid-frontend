@@ -20,11 +20,13 @@ const renderAuth = (setAuthenticated, loggingIn) => renderProps => (
 );
 
 // Component
+
 const Routes = ({
   authData,
   authsetAuthenticated: setAuthenticatedProp,
   history,
 }) => {
+
   const setAuthenticated = data => {
     history.push('/');
     setAuthenticatedProp(data);
@@ -32,7 +34,8 @@ const Routes = ({
 
   return (
     <Switch>
-      <Route path="/" exact component={Dashboard} />
+      {/* <Route path="/" exact component={Dashboard} /> */}
+      <Route path="/" exact render={() => <Dashboard authData={authData} />} />
       <Route path="/posts/:id" render={renderPost} />
       <Route path="/myposts" render={() => <UserPosts authData={authData} />} />
       <Route path="/login" render={renderAuth(setAuthenticated, true)} />

@@ -11,7 +11,9 @@ const renderItem = (post) => (
 
 const renderListItems = items => items.map(renderItem);
 
-const Dashboard = ({ history }) => {
+
+const Dashboard = (props) => {
+
   const [posts, setPosts] = useState([]);
   const [postCategories, setPostCategories] = useState([]);
   const [requestFormOpen, setRequestFormOpen] = useState(false);
@@ -22,16 +24,20 @@ const Dashboard = ({ history }) => {
   }, []);
 
   const showModal = () => setRequestFormOpen(true);
-
   const closeModal = () => setRequestFormOpen(false);
 
-  const visitPost = (postId) => history.push(`/posts/${ postId }`) 
+
+  const buttonStyle = 'btn btn-primary btn-lg btn request-aid '
+  const showButton = props.authData.authenticated ? 'display-inline-block' : 'display-none'
+
+  const visitPost = (postId) => props.history.push(`/posts/${ postId }`) 
+
 
   return (
     <div>
       <div className="text-center board">
         <button
-          className="btn btn-primary btn-lg btn request-aid"
+          className={buttonStyle + showButton}
           type="button"
           onClick={showModal}
         >

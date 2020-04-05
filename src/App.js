@@ -12,9 +12,10 @@ const App = () => {
 
   return (
     <div>
+    
       <Navbar authData={authData} />
-
       <Routes authData={authData} setAuthenticated={setAuthData} />
+
     </div>
   );
 };
