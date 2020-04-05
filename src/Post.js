@@ -19,7 +19,7 @@ const Post = ({ id: postId }) => {
       <p>Quantity: {post.quantity}</p>
       <p class="lead">{post.details}</p>
 
-      <h2>{ post.request_offer ?  "Requests" : "Offers" } in this category</h2>
+      <h2>{ post.request_offer ? "Offers" : "Requests" } in this category</h2>
       <ul>
         {post.matching_posts.map(post => {
           return <PostCard post={post}/>
