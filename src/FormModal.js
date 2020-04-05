@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Adapter from './Adapter';
 
-const FormModal = ({ closeModal, formOpen, postCategories }) => {
+const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
 
   const initialState = {
     title: '',
-    request_offer: null,
+    request_offer: false,
     details: '',
     // date_posted: '',
     location: '',
@@ -35,7 +35,7 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
       }
       else {
         clearForm();
-        closeModal();
+        visitPost(data.id);
       }
     })
     
@@ -106,8 +106,8 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
                 className="input-containee"
                 onChange={handleChange}
                 >
-                  <option>Request</option>
-                  <option>Offer</option>
+                  <option value={ true }>Request</option>
+                  <option value={ false }>Offer</option>
                 </select>
               </div>
 
