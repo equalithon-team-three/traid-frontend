@@ -4,17 +4,17 @@ import Routes from './Routes';
 import Adapter from './Adapter';
 
 const App = () => {
-
-  const [ authData, setAuthData ] = useState({});
+  const [authData, setAuthData] = useState({});
 
   useEffect(() => {
-    Adapter.authCheck(setAuthData)
-  }, [ setAuthData ])
+    Adapter.authCheck(setAuthData);
+  }, [setAuthData]);
 
   return (
     <div>
-      <Navbar authData={ authData }/>
-      <Routes setAuthenticated={ setAuthData } />
+      <Navbar authData={authData} />
+
+      <Routes authData={authData} setAuthenticated={setAuthData} />
     </div>
   );
 };
