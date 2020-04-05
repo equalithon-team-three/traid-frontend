@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Adapter from './Adapter';
 
-const FormModal = ({ closeModal, formOpen, postCategories }) => {
+const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
 
   const initialState = {
     title: '',
@@ -35,7 +35,7 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
       }
       else {
         clearForm();
-        closeModal();
+        visitPost(data.id);
       }
     })
     
