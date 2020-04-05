@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 const renderLoggedIn = ({ email }) =>  <>
                         <li className="nav-item">
+                          <NavLink to="/myposts" className="nav-link">
                             <span className="text-style-bold">Logged in as { email }</span>
+                          </NavLink>
                         </li>
 
                         <li className="nav-item">
@@ -49,24 +51,6 @@ const Navbar = ({ authData }) => {
 
       <div className="navbar-collapse collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <NavLink to="/" className="nav-link">
-              <span className="text-style-bold">Home</span>{' '}
-              <span className="sr-only">(current)</span>
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink to="/items" className="nav-link">
-              <span className="text-style-bold">Items</span>
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink to="/tasks" className="nav-link">
-              <span className="text-style-bold">Tasks</span>
-            </NavLink>
-          </li>
 
           <li className="nav-item">
             <NavLink to="/about" className="nav-link">
