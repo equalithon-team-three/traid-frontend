@@ -121,3 +121,7 @@ label {
 .page-not-found-message {
   margin: 2em;
 }
+
+.user-post {
+  margin: 0.15em 2em;
+}

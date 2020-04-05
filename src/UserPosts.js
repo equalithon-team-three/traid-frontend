@@ -24,7 +24,7 @@ const UserPosts = ({ authData }) => {
       <div>
         {state.user_posts.not_completed.length ? (
           state.user_posts.not_completed.map(curPost => (
-            <div key={curPost.id} className="card post-preview">
+            <div key={curPost.id} className="card user-post">
               <div className="card text-white bg-info mb-3 card-margin">
                 <div className="card-header text-style-bold">
                   {curPost.title}
@@ -46,7 +46,7 @@ const UserPosts = ({ authData }) => {
       <div>
         {state.user_posts.completed.length ? (
           state.user_posts.completed.map(curPost => (
-            <div key={curPost.id} className="card post-preview">
+            <div key={curPost.id} className="card user-post">
               <div className="card text-white bg-info mb-3 card-margin">
                 <div className="card-header text-style-bold">
                   {curPost.title}
