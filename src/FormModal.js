@@ -5,7 +5,7 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
 
   const initialState = {
     title: '',
-    request_offer: null,
+    request_offer: false,
     details: '',
     // date_posted: '',
     location: '',
@@ -106,8 +106,8 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
                 className="input-containee"
                 onChange={handleChange}
                 >
-                  <option>Request</option>
-                  <option>Offer</option>
+                  <option value={ true }>Request</option>
+                  <option value={ false }>Offer</option>
                 </select>
               </div>
 
