@@ -1,32 +1,37 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const renderLoggedIn = ({ email }) =>  <>
-                        <li className="nav-item">
-                            <span className="text-style-bold">Logged in as { email }</span>
-                        </li>
+const renderLoggedIn = ({ email }) => {
+  return (
+    <>
+      <li className="nav-item">
+        <span className="text-style-bold">Logged in as {email}</span>
+      </li>
 
-                        <li className="nav-item">
-                          <NavLink to="/logout" className="nav-link">
-                            <span className="text-style-bold">Log out</span>
-                          </NavLink>
-                        </li>
-                      </>
+      <li className="nav-item">
+        <NavLink to="/logout" className="nav-link">
+          <span className="text-style-bold">Log out</span>
+        </NavLink>
+      </li>
+    </>
+  );
+};
 
+const renderLoggedOut = () => (
+  <>
+    <li className="nav-item">
+      <NavLink to="/login" className="nav-link">
+        <span className="text-style-bold">Log In</span>
+      </NavLink>
+    </li>
 
-const renderLoggedOut = () => <>
-                        <li className="nav-item">
-                          <NavLink to="/login" className="nav-link">
-                            <span className="text-style-bold">Log In</span>
-                          </NavLink>
-                        </li>
-
-                        <li className="nav-item">
-                          <NavLink to="/register" className="nav-link">
-                            <span className="text-style-bold">Sign Up</span>
-                          </NavLink>
-                        </li>
-                      </>
+    <li className="nav-item">
+      <NavLink to="/register" className="nav-link">
+        <span className="text-style-bold">Sign Up</span>
+      </NavLink>
+    </li>
+  </>
+);
 
 const Navbar = ({ authData }) => {
   return (
@@ -57,14 +62,8 @@ const Navbar = ({ authData }) => {
           </li>
 
           <li className="nav-item">
-            <NavLink to="/items" className="nav-link">
-              <span className="text-style-bold">Items</span>
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink to="/tasks" className="nav-link">
-              <span className="text-style-bold">Tasks</span>
+            <NavLink to="/myposts" className="nav-link">
+              <span className="text-style-bold">My Posts</span>
             </NavLink>
           </li>
 
@@ -74,7 +73,9 @@ const Navbar = ({ authData }) => {
             </NavLink>
           </li>
 
-          { authData.authenticated ? renderLoggedIn(authData) : renderLoggedOut(authData) } 
+          {authData.authenticated
+            ? renderLoggedIn(authData)
+            : renderLoggedOut(authData)}
 
           <li className="nav-item">
             <a
@@ -87,18 +88,6 @@ const Navbar = ({ authData }) => {
             </a>
           </li>
         </ul>
-
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-
-          <button className="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </nav>
   );
