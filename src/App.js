@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <Navbar authData={ authData }/>
-      <Routes setAuthenticated={ setAuthData } />
+      <Routes setAuthenticated={setAuthData} authData={authData}/>
     </div>
   );
 };
