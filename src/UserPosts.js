@@ -19,7 +19,7 @@ const UserPosts = ({ authData }) => {
 
   return (
     <div className="text-center">
-      <h3>Not Completed</h3>
+      <h3 className="post-category-header">Not Completed</h3>
 
       <div>
         {state.user_posts.not_completed.length ? (
@@ -41,7 +41,7 @@ const UserPosts = ({ authData }) => {
         )}
       </div>
 
-      <h3>Completed</h3>
+      <h3 className="post-category-header">Completed</h3>
 
       <div>
         {state.user_posts.completed.length ? (
