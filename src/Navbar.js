@@ -5,7 +5,9 @@ const renderLoggedIn = ({ email }) => {
   return (
     <>
       <li className="nav-item">
-        <span className="text-style-bold">Logged in as {email}</span>
+        <NavLink to="/myposts" className="nav-link">
+          <span className="text-style-bold">Logged in as {email}</span>
+        </NavLink>
       </li>
 
       <li className="nav-item">
