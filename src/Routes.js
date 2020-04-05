@@ -23,7 +23,7 @@ const renderAuth = (setAuthenticated, loggingIn) => renderProps => (
 
 const Routes = ({
   authData,
-  authsetAuthenticated: setAuthenticatedProp,
+  setAuthenticated: setAuthenticatedProp,
   history,
 }) => {
 
