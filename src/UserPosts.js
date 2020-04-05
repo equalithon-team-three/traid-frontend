@@ -18,16 +18,22 @@ const UserPosts = ({ authData }) => {
   }, [authData.id]);
 
   return (
-    <div>
+    <div className="text-center">
       <h3>Not Completed</h3>
 
       <div>
         {state.user_posts.not_completed.length ? (
           state.user_posts.not_completed.map(curPost => (
-            <div key={curPost.id}>
-              <div>{curPost.title}</div>
+            <div key={curPost.id} className="card post-preview">
+              <div className="card text-white bg-info mb-3 card-margin">
+                <div className="card-header text-style-bold">
+                  {curPost.title}
+                </div>
 
-              <div>{curPost.details}</div>
+                <div className="card-body text-success bg-white">
+                  <p className="card-text">{curPost.details}</p>
+                </div>
+              </div>
             </div>
           ))
         ) : (
@@ -40,10 +46,16 @@ const UserPosts = ({ authData }) => {
       <div>
         {state.user_posts.completed.length ? (
           state.user_posts.completed.map(curPost => (
-            <div key={curPost.id}>
-              <div>{curPost.title}</div>
+            <div key={curPost.id} className="card post-preview">
+              <div className="card text-white bg-info mb-3 card-margin">
+                <div className="card-header text-style-bold">
+                  {curPost.title}
+                </div>
 
-              <div>{curPost.details}</div>
+                <div className="card-body text-success bg-white">
+                  <p className="card-text">{curPost.details}</p>
+                </div>
+              </div>
             </div>
           ))
         ) : (
