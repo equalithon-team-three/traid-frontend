@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Adapter from './Adapter';
 
 const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
-
   const initialState = {
     title: '',
     request_offer: false,
@@ -13,7 +12,7 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
     // between items and services
     deadline: '',
     completed: false,
-    post_category_id: postCategories[0].id // this might be bad
+    post_category_id: postCategories[0].id, // this might be bad
   };
 
   const [state, setState] = useState(initialState);
@@ -31,23 +30,17 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
 
     Adapter.createPost(state, data => {
       if (data.errors) {
-        setErrors(data.errors)
-      }
-      else {
+        setErrors(data.errors);
+      } else {
         clearForm();
         visitPost(data.id);
       }
-    })
-    
+    });
   };
 
-  const [formInfo, setFormInfo] = useState(
-    { title: '', request_offer: null, details: '', date_posted: '', location: '', quantity: 0, deadline: '', completed: null }
-  )
-
-
-
-  const showHideClassName = formOpen ? 'modal display-block' : 'modal display-none'
+  const showHideClassName = formOpen
+    ? 'modal display-block'
+    : 'modal display-none';
 
   return (
     <div className={showHideClassName} onClick={closeModal}>
@@ -70,21 +63,29 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
           </div>
 
           <div className="modal-body">
-              { errors ? <ul>{ errors.map(error => <li key={ error }>{ error }</li>) }</ul> : null }
+            {errors ? (
+              <ul>
+                {errors.map(error => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            ) : null}
             <form onSubmit={handleSubmit}>
-
               <div className="input-container">
                 <label className="input-containee">Post Category</label>
 
-                <select 
-                  value={ state.post_category_id }
+                <select
+                  value={state.post_category_id}
                   name="post_category_id"
                   onChange={handleChange}
                 >
-                  { postCategories.map(({ name, id }) => <option value={ id } key={ id } >{ name }</option>) }
+                  {postCategories.map(({ name, id }) => (
+                    <option value={id} key={id}>
+                      {name}
+                    </option>
+                  ))}
                 </select>
               </div>
-
 
               <div className="input-container">
                 <label className="input-containee">Title</label>
@@ -100,7 +101,9 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Is this a request or an offer?</label>
+                <label className="input-containee">
+                  Is this a request or an offer?
+                </label>
 
                 <select 
                 className="input-containee"
@@ -167,9 +170,7 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
         </div>
       </div>
     </div>
-  )
-
-}
+  );
+};
 
 export default FormModal;
-

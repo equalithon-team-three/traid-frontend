@@ -5,7 +5,6 @@ import Adapter from './Adapter';
 import FormModal from './FormModal';
 import PostCard from './PostCard';
 
-
 const renderItem = (post) => (
   <PostCard post={post} />
 );
@@ -21,7 +20,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     Adapter.getPosts(setPosts);
-    Adapter.getPostCategories(setPostCategories)
+    Adapter.getPostCategories(setPostCategories);
   }, []);
 
   const showModal = () => setRequestFormOpen(true);
@@ -45,7 +44,7 @@ const Dashboard = (props) => {
           Request/Offer Aid
         </button>
 
-        <ul>{ renderListItems(posts) }</ul>
+        <ul>{renderListItems(posts)}</ul>
 
         { 
           requestFormOpen && postCategories.length ? <FormModal
