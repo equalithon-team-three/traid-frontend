@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Adapter from './Adapter';
 
-const FormModal = ({ closeModal, formOpen, postCategories }) => {
+const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
   const initialState = {
     title: '',
-    request_offer: null,
+    request_offer: false,
     details: '',
     // date_posted: '',
     location: '',
@@ -33,7 +33,7 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
         setErrors(data.errors);
       } else {
         clearForm();
-        closeModal();
+        visitPost(data.id);
       }
     });
   };
@@ -105,24 +105,59 @@ const FormModal = ({ closeModal, formOpen, postCategories }) => {
                   Is this a request or an offer?
                 </label>
 
-                <select className="input-containee" onChange={handleChange}>
-                  <option>Request</option>
-                  <option>Offer</option>
+                <select 
+                className="input-containee"
+                onChange={handleChange}
+                >
+                  <option value={ true }>Request</option>
+                  <option value={ false }>Offer</option>
                 </select>
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Content</label>
+                <label className="input-containee">Location</label>
+                <input
+                  className="input-containee"
+                  type="text"
+                  name="location"
+                  value={state.location}
+                  onChange={handleChange}
+                />
+              </div>
 
+              <div className="input-container">
+                <label className="input-containee">Details</label>
                 <textarea
                   className="input-containee"
                   type="text"
                   name="details"
                   value={state.details}
-                  required
                   onChange={handleChange}
                 />
               </div>
+
+              <div className="input-container">
+                <label className="input-containee">Need by or Pledge By</label>
+                <input
+                  className="input-containee"
+                  type="date"
+                  name="deadline"
+                  value={state.deadline}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="input-container">
+                <label className="input-containee">Quantity?</label>
+                <input
+                  className="input-containee"
+                  type="number"
+                  name="quantity"
+                  value={state.quantity}
+                  onChange={handleChange}
+                />
+              </div>
+
 
               <button
                 className="btn btn-success btn-lg btn modal-button"

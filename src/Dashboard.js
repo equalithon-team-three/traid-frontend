@@ -3,39 +3,15 @@ import { NavLink } from 'react-router-dom';
 
 import Adapter from './Adapter';
 import FormModal from './FormModal';
+import PostCard from './PostCard';
 
-const renderItem = post => (
-  //hello
-  <li key={post.id}>
-    <div className="card post-preview">
-      <NavLink to={'/posts/' + post.id} className="card-link">
-        <div
-          className={
-            post.request_offer
-              ? 'card text-white bg-danger mb-3 card-margin'
-              : 'card text-white bg-success mb-3 card-margin'
-          }
-        >
-          <div className="card-header text-style-bold">{post.title}</div>
-
-          <div
-            className={
-              post.request_offer
-                ? 'card-body text-danger bg-white'
-                : 'card-body text-success bg-white'
-            }
-          >
-            <p className="card-text">{post.details}</p>
-          </div>
-        </div>
-      </NavLink>
-    </div>
-  </li>
+const renderItem = (post) => (
+  <PostCard post={post} />
 );
 
 const renderListItems = items => items.map(renderItem);
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
   const [posts, setPosts] = useState([]);
   const [postCategories, setPostCategories] = useState([]);
   const [requestFormOpen, setRequestFormOpen] = useState(false);
@@ -48,6 +24,8 @@ const Dashboard = () => {
   const showModal = () => setRequestFormOpen(true);
 
   const closeModal = () => setRequestFormOpen(false);
+
+  const visitPost = (postId) => history.push(`/posts/${ postId }`) 
 
   return (
     <div>
@@ -62,14 +40,14 @@ const Dashboard = () => {
 
         <ul>{renderListItems(posts)}</ul>
 
-        {requestFormOpen && postCategories.length ? (
-          <FormModal
-            showModal={showModal}
+        { 
+          requestFormOpen && postCategories.length ? <FormModal
+            visitPost={visitPost}
             closeModal={closeModal}
             formOpen={requestFormOpen}
             postCategories={postCategories}
-          />
-        ) : null}
+
+          /> : null }
       </div>
     </div>
   );
