@@ -12,7 +12,6 @@ const Post = ({ id: postId }) => {
   return (
     <>
       <h1>{ post.request_offer ? "Request" : "Offer" }: {post.title}</h1>
-      <p>From: { post.user.first_name + " " + post.user.last_name }</p>
       <p>{post.post_category.name}</p>
       <p>Location: {post.location}</p>
       <p>Deadline: {post.deadline}</p>
