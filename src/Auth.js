@@ -70,6 +70,7 @@ const Auth = ({ loggingIn, setAuthenticated }) => {
 
         <input type="submit" />
       </form>
+      <a href='http://localhost:3000/auth/google_oauth2'>Log in with G</a>
     </>
   );
 };
