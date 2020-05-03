@@ -22,7 +22,9 @@ const renderErrors = errors => (
 );
 
 const Auth = ({ loggingIn, setAuthenticated }) => {
-  // controlled inputs
+  const authType = loggingIn ? 'Log In' : 'Sign Up';
+
+  // Controlled inputs
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -37,10 +39,11 @@ const Auth = ({ loggingIn, setAuthenticated }) => {
     });
 
   return (
-    <>
-      <h2>{loggingIn ? 'Log In' : 'Sign up'}</h2>
-      {errors.length ? renderErrors(errors) : null}
+    <div className="text-center board">
+      <h2 className="post-category-header">{authType}</h2>
+
       <form
+        className="auth-form"
         onSubmit={e => {
           e.preventDefault();
           onSubmit(loggingIn, formData, setErrors, setAuthenticated);
@@ -48,30 +51,47 @@ const Auth = ({ loggingIn, setAuthenticated }) => {
       >
         <ul>
           <li>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email: </label>
+
             <input
               type="text"
               id="email"
               name="email"
+              autoComplete="email"
               onChange={inputChanged}
             />
           </li>
 
           <li>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password: </label>
+
             <input
               type="password"
               id="password"
               name="password"
+              autoComplete="password"
               onChange={inputChanged}
             />
           </li>
         </ul>
 
-        <input type="submit" />
+        <button
+          className="btn btn-success btn-lg btn modal-button text-style-bold"
+          type="submit"
+        >
+          {authType}
+        </button>
+
+        {errors.length ? renderErrors(errors) : null}
       </form>
-      <a href='http://localhost:3000/auth/google_oauth2'>Log in with G</a>
-    </>
+
+      <a
+        className="google-oauth"
+        href={process.env.REACT_APP_BACKEND_OAUTH_URL}
+      >
+        {`${authType} with Google`}
+      </a>
+    </div>
   );
 };
 
