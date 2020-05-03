@@ -47,8 +47,10 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
       <div className='class="modal-dialog" role="document"'>
         <div className="modal-main" onClick={event => event.stopPropagation()}>
           <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Create Aid Request/Offer</h5>
+            <div className="modal-header modal-header-color">
+              <h5 className="modal-title text-color-white">
+                Create Aid Request/Offer
+              </h5>
 
               <button
                 className="close"
@@ -72,11 +74,29 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
             ) : null}
             <form onSubmit={handleSubmit}>
               <div className="input-container">
-                <label className="input-containee">Post Category</label>
+                <label className="input-containee text-style-bold">Type</label>
 
                 <select
-                  value={state.post_category_id}
+                  className="input-containee"
+                  name="completed"
+                  onChange={handleChange}
+                  required
+                >
+                  <option value={true}>Request</option>
+                  <option value={false}>Offer</option>
+                </select>
+              </div>
+
+              <div className="input-container">
+                <label className="input-containee text-style-bold">
+                  Category
+                </label>
+
+                <select
+                  className="input-containee"
                   name="post_category_id"
+                  value={state.post_category_id}
+                  required
                   onChange={handleChange}
                 >
                   {postCategories.map(({ name, id }) => (
@@ -88,7 +108,7 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Title</label>
+                <label className="input-containee text-style-bold">Title</label>
 
                 <input
                   className="input-containee"
@@ -101,54 +121,55 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
               </div>
 
               <div className="input-container">
-                <label className="input-containee">
-                  Is this a request or an offer?
+                <label className="input-containee text-style-bold">
+                  Location
                 </label>
 
-                <select 
-                className="input-containee"
-                onChange={handleChange}
-                >
-                  <option value={ true }>Request</option>
-                  <option value={ false }>Offer</option>
-                </select>
-              </div>
-
-              <div className="input-container">
-                <label className="input-containee">Location</label>
                 <input
                   className="input-containee"
                   type="text"
                   name="location"
                   value={state.location}
+                  required
                   onChange={handleChange}
                 />
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Details</label>
+                <label className="input-containee text-style-bold">
+                  Details
+                </label>
+
                 <textarea
                   className="input-containee"
                   type="text"
                   name="details"
                   value={state.details}
+                  required
                   onChange={handleChange}
                 />
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Need by or Pledge By</label>
+                <label className="input-containee text-style-bold">
+                  Deadline
+                </label>
+
                 <input
                   className="input-containee"
                   type="date"
                   name="deadline"
                   value={state.deadline}
+                  required
                   onChange={handleChange}
                 />
               </div>
 
               <div className="input-container">
-                <label className="input-containee">Quantity?</label>
+                <label className="input-containee text-style-bold">
+                  Quantity (Optional)
+                </label>
+
                 <input
                   className="input-containee"
                   type="number"
@@ -158,9 +179,8 @@ const FormModal = ({ closeModal, formOpen, postCategories, visitPost }) => {
                 />
               </div>
 
-
               <button
-                className="btn btn-success btn-lg btn modal-button"
+                className="btn btn-success btn-lg btn modal-button text-style-bold"
                 type="submit"
               >
                 Create
