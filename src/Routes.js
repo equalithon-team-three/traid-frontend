@@ -26,7 +26,6 @@ const Routes = ({
   setAuthenticated: setAuthenticatedProp,
   history,
 }) => {
-
   const setAuthenticated = data => {
     history.push('/');
     setAuthenticatedProp(data);
@@ -35,7 +34,11 @@ const Routes = ({
   return (
     <Switch>
       {/* <Route path="/" exact component={Dashboard} /> */}
-      <Route path="/" exact render={() => <Dashboard authData={authData} />} />
+      <Route
+        path="/"
+        exact
+        render={() => <Dashboard authData={authData} history={history} />}
+      />
       <Route path="/posts/:id" render={renderPost} />
       <Route path="/myposts" render={() => <UserPosts authData={authData} />} />
       <Route path="/login" render={renderAuth(setAuthenticated, true)} />

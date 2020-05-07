@@ -5,7 +5,7 @@ const authUrlBase = Config.read('REACT_APP_AUTH_URL_BASE');
 
 class Adapter {
   static getPosts(callback) {
-    fetch(apiUrlBase + 'posts', {
+    fetch(apiUrlBase + '/posts', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -13,7 +13,7 @@ class Adapter {
   }
 
   static getUserPosts(callback, id) {
-    fetch(apiUrlBase + `users/${id}/posts`, {
+    fetch(apiUrlBase + `/users/${id}/posts`, {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -21,7 +21,7 @@ class Adapter {
   }
 
   static getPostCategories(callback) {
-    fetch(apiUrlBase + 'post_categories', {
+    fetch(apiUrlBase + '/post_categories', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -29,7 +29,7 @@ class Adapter {
   }
 
   static getPost(postId, callback) {
-    fetch(apiUrlBase + 'posts/' + postId, {
+    fetch(apiUrlBase + '/posts/' + postId, {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -37,7 +37,7 @@ class Adapter {
   }
 
   static logIn(credentials, callback) {
-    fetch(authUrlBase + 'login', {
+    fetch(authUrlBase + '/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -50,7 +50,7 @@ class Adapter {
   }
 
   static signUp(credentials, callback) {
-    fetch(authUrlBase + 'register', {
+    fetch(authUrlBase + '/register', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -63,7 +63,7 @@ class Adapter {
   }
 
   static createPost(post, callback) {
-    fetch(apiUrlBase + 'posts', {
+    fetch(apiUrlBase + '/posts', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -76,7 +76,7 @@ class Adapter {
   }
 
   static logOut(callback) {
-    fetch(authUrlBase + 'logout', {
+    fetch(authUrlBase + '/logout', {
       method: 'POST',
       credentials: 'include',
     })
@@ -85,7 +85,7 @@ class Adapter {
   }
 
   static authCheck(callback) {
-    fetch(authUrlBase + 'check', {
+    fetch(authUrlBase + '/check', {
       method: 'POST',
       credentials: 'include',
     })

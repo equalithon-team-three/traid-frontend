@@ -1,18 +1,30 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const renderLoggedIn = ({ email }) => {
+const renderLoggedIn = ({ email, first_name }) => {
   return (
     <>
       <li className="nav-item">
-        <NavLink to="/myposts" className="nav-link">
-          <span className="text-style-bold">Logged in as {email}</span>
-        </NavLink>
+        <div className="nav-link nav-hello-message">
+          <span className="text-style-bold text-color-white">
+            {`Hello, ${
+              first_name
+                ? first_name
+                : email[0].toUpperCase() + email.slice(1, email.indexOf('@'))
+            }.`}
+          </span>
+        </div>
       </li>
 
       <li className="nav-item">
         <NavLink to="/logout" className="nav-link">
-          <span className="text-style-bold">Log out</span>
+          <span className="text-style-bold">Log Out</span>
+        </NavLink>
+      </li>
+
+      <li className="nav-item">
+        <NavLink to="/myposts" className="nav-link">
+          <span className="text-style-bold">My Posts</span>
         </NavLink>
       </li>
     </>
@@ -36,11 +48,10 @@ const renderLoggedOut = () => (
 );
 
 const Navbar = ({ authData }) => {
-  // console.log(authData)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink to="/" className="navbar-brand">
-        <span className="logo text-style-bold">Traid</span>
+        <span className="logo text-color-white text-style-bold">Traid</span>
       </NavLink>
 
       <button
@@ -57,28 +68,23 @@ const Navbar = ({ authData }) => {
 
       <div className="navbar-collapse collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
+          {authData.authenticated
+            ? renderLoggedIn(authData)
+            : renderLoggedOut(authData)}
+
+          {/* <li className="nav-item active">
             <NavLink to="/" className="nav-link">
-              <span className="text-style-bold">Home</span>{' '}
+              <span className="text-style-bold">Home</span>
+
               <span className="sr-only">(current)</span>
             </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink to="/myposts" className="nav-link">
-              <span className="text-style-bold">My Posts</span>
-            </NavLink>
-          </li>
+          </li> */}
 
           <li className="nav-item">
             <NavLink to="/about" className="nav-link">
               <span className="text-style-bold">About</span>
             </NavLink>
           </li>
-
-          {authData.authenticated
-            ? renderLoggedIn(authData)
-            : renderLoggedOut(authData)}
 
           <li className="nav-item">
             <a

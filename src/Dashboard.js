@@ -4,7 +4,7 @@ import Adapter from './Adapter';
 import FormModal from './FormModal';
 import PostCard from './PostCard';
 
-const renderItem = post => <PostCard post={post} />;
+const renderItem = post => <PostCard key={post.id} post={post} />;
 
 const renderListItems = items => items.map(renderItem);
 
@@ -36,7 +36,9 @@ const Dashboard = props => {
           type="button"
           onClick={showModal}
         >
-          Request/Offer Aid
+          <span className="text-color-white text-style-bold">
+            Request/Offer Aid
+          </span>
         </button>
 
         <ul>{renderListItems(posts)}</ul>
