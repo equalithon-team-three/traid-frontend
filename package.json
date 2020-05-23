@@ -1,7 +1,10 @@
 {
   "name": "traid-frontend",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "private": false,
+  "author": "Tal Luigi, Graham Troyer-Joy, Meredith Strickland, Jessica Lin",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
