@@ -10,6 +10,10 @@
 
 https://tr-aid.web.app
 
+### Source:
+
+https://github.com/equalithon-team-three/traid-backend
+
 ### Description:
 
 Responsive web app that allows users to offer and request aid from others in their community.
