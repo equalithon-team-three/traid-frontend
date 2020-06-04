@@ -27,6 +27,24 @@ Built using Rails on the backend and React and Bootswatch on the frontend.
 - Meredith Strickland ([LinkedIn](https://www.linkedin.com/in/meredith-strickland) | [GitHub](https://github.com/merestrickland))
 - Jessica Lin ([LinkedIn](https://www.linkedin.com/in/lin-jessica) | [GitHub](https://github.com/lin-jessica))
 
+### Schema:
+
+    Users ----< Posts >-------- PostCategory
+                  |                  |
+                  |                  |
+                  |                  ^
+                  |             Taggability
+                  |                 \/
+                  |                  |
+                  |                  |
+                  |            TagCategories
+                  |                  |
+                  |                  |
+                  |                  |
+                  |                  |
+                  |                  ^
+                  ----------------< Tags
+
 ## Firebase Deployment
 
 - Install Firebase CLI
