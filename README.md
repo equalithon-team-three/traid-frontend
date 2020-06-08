@@ -10,6 +10,10 @@
 
 https://tr-aid.web.app
 
+### Source:
+
+https://github.com/equalithon-team-three/traid-backend
+
 ### Description:
 
 Responsive web app that allows users to offer and request aid from others in their community.
@@ -18,7 +22,7 @@ MVP completed using Agile methodologies in 7 days for the Essteem Hackathon for 
 
 ### Tech Stack:
 
-Built using Rails on the backend and React and Bootswatch on the frontend.
+Built using Ruby, Ruby on Rails, and Active Record on the backend and React and Bootswatch on the frontend.
 
 ### Dev Team:
 
@@ -26,6 +30,24 @@ Built using Rails on the backend and React and Bootswatch on the frontend.
 - Graham Troyer-Joy ([LinkedIn](https://www.linkedin.com/in/grahamtroyerjoy) | [GitHub](https://github.com/telegraham))
 - Meredith Strickland ([LinkedIn](https://www.linkedin.com/in/meredith-strickland) | [GitHub](https://github.com/merestrickland))
 - Jessica Lin ([LinkedIn](https://www.linkedin.com/in/lin-jessica) | [GitHub](https://github.com/lin-jessica))
+
+### Schema:
+
+    Users ----< Posts >-------- PostCategory
+                  |                  |
+                  |                  |
+                  |                  ^
+                  |             Taggability
+                  |                 \/
+                  |                  |
+                  |                  |
+                  |            TagCategories
+                  |                  |
+                  |                  |
+                  |                  |
+                  |                  |
+                  |                  ^
+                  ----------------< Tags
 
 ## Firebase Deployment
 
