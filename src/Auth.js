@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+
+import Config from './Config';
 import Adapter from './Adapter';
+
+const backendOauthUrl = Config.read('REACT_APP_BACKEND_OAUTH_URL');
 
 const onSubmit = (loggingIn, formData, setErrors, setAuthenticated) => {
   const methodName = loggingIn ? 'logIn' : 'signUp';
@@ -85,10 +89,7 @@ const Auth = ({ loggingIn, setAuthenticated }) => {
         {errors.length ? renderErrors(errors) : null}
       </form>
 
-      <a
-        className="google-oauth"
-        href={process.env.REACT_APP_BACKEND_OAUTH_URL}
-      >
+      <a className="google-oauth" href={backendOauthUrl}>
         {`${authType} with Google`}
       </a>
     </div>
